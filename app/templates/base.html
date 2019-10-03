@@ -1,0 +1,18 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Address Book</title>
+      {% else %}
+      <title>Address Book</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+          Address Book:
+          <a href="/home">Home</a>
+          <a href="/addresses">Addresses</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
