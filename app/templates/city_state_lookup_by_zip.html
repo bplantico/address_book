@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Lookup a City/State by Zipcode</h1>
+    <p>Enter a five digit zipcode in the form below to return the city and state the USPS uses for that zipcode.</p>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+          {{ form.zip.label }}<br>
+          {{ form.zip(size=32) }}
+          {% for error in form.zip.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
