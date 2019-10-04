@@ -8,4 +8,7 @@ class NewAddressForm(FlaskForm):
     city = StringField('City', validators=[DataRequired()])
     state = StringField('State', validators=[DataRequired()])
     zip = IntegerField('Zip', validators=[DataRequired()])
-    submit = SubmitField('Create Address', validators=[DataRequired()])
+    submit = SubmitField('Create Address')
+
+class DeleteAddressForm(FlaskForm):
+    submit = SubmitField('Delete Address')
