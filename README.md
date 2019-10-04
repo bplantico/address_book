@@ -14,4 +14,6 @@ Welcome to Address Book, a simple web application written in Flask/Python by Bri
 # Schema
 
 The current schema for the database is shown below.
+
+
 ![Address Book Database Schema](https://user-images.githubusercontent.com/43261385/66223974-5117bf00-e6c4-11e9-8a4d-d066a6538f54.png)
