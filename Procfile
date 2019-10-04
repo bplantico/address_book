@@ -1,1 +1,1 @@
-web: flask db upgrade; flask translate compile; gunicorn bp-address-book:app
+web: flask db upgrade; gunicorn address_book:app
