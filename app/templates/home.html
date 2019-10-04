@@ -2,4 +2,9 @@
 
 {% block content %}
   <h1>Welcome to Address Book, a RESTful Flask application by Brian Plantico.</h1>
+  <ul>
+    <li><a href="{{ url_for('addresses_index') }}">All Addresses</a></li>
+    <li><a href="{{ url_for('new_address') }}">Add a New Address</a></li>
+    <li><a href="{{ url_for('city_state_lookup_by_zip') }}">Lookup a City/State by Zipcode</a></li>
+  </ul>
 {% endblock %}
