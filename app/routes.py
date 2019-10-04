@@ -13,6 +13,11 @@ def addresses_index():
     addresses = Address.query.all()
     return render_template('addresses_index.html', addresses=addresses)
 
+@app.route('/addresses/<int:address_id>')
+def show_address(address_id):
+    address = Address.query.get_or_404(address_id)
+    return  render_template('show_address.html', address=address)
+
 @app.route('/addresses/new', methods=['GET', 'POST'])
 def new_address():
     form = NewAddressForm()
