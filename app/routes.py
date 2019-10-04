@@ -1,5 +1,7 @@
-from flask import render_template
-from app import app
+from flask import render_template, flash, redirect
+from app import app, db
+from app.models import Address
+from app.forms import NewAddressForm
 
 @app.route('/')
 @app.route('/home')
@@ -8,18 +10,16 @@ def home():
 
 @app.route('/addresses')
 def addresses_index():
-    addresses = [
-        {"name": "home",
-         "address": "2862 W Long Dr",
-         "city": "Littleton",
-         "state": "CO",
-         "zip": "80120"
-         },
-        {"name": "school",
-         "address": "1331 17th",
-         "city": "Denver",
-         "state": "CO",
-         "zip": "80202"
-         }
-    ]
+    addresses = Address.query.all()
     return render_template('addresses_index.html', addresses=addresses)
+
+@app.route('/addresses/new', methods=['GET', 'POST'])
+def new_address():
+    form = NewAddressForm()
+    if form.validate_on_submit():
+        address = Address(name=form.name.data, address=form.address.data, city=form.city.data, state=form.state.data, zip=form.zip.data)
+        db.session.add(address)
+        db.session.commit()
+        flash('{} has been added to your addresses.'.format(form.address.data))
+        return redirect('/addresses')
+    return render_template('new_address.html', title="New Address", form=form)
