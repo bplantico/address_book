@@ -1,1 +1,1 @@
-heroku ps:scale web=1
+web: flask db upgrade; flask translate compile; gunicorn bp-address-book:app

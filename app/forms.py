@@ -12,3 +12,7 @@ class NewAddressForm(FlaskForm):
 
 class DeleteAddressForm(FlaskForm):
     submit = SubmitField('Delete Address')
+
+class CityStateFromZipForm(FlaskForm):
+    zip = IntegerField('Zip', validators=[DataRequired()])
+    submit = SubmitField('Lookup City/State')
