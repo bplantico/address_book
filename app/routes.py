@@ -2,6 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.models import Address
 from app.forms import NewAddressForm, DeleteAddressForm, CityStateFromZipForm
+
 import requests
 import untangle
 
