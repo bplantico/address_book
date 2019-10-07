@@ -1,1 +1,1 @@
-web: gunicorn app:app flask db upgrade; release: python address_book.py
+web: gunicorn -w 1 app:app;
