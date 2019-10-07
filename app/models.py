@@ -7,7 +7,7 @@ class Address(db.Model):
     address = db.Column(db.String(120))
     city = db.Column(db.String(60))
     state = db.Column(db.String(60))
-    zip = db.Column(db.String(10heroku ps:scale web=1))
+    zip = db.Column(db.String(10))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def __repr__(self):
